@@ -8,8 +8,8 @@ _extramodules=extramodules-6.1-MANJARO
 
 pkgname=$_linuxprefix-nvidia-470xx
 pkgdesc="NVIDIA drivers for linux"
-pkgver=470.141.03
-pkgrel=0.4
+pkgver=470.161.03
+pkgrel=0.1
 arch=('x86_64')
 url="http://www.nvidia.com/"
 license=('custom')
@@ -20,20 +20,16 @@ provides=("nvidia=$pkgver" 'NVIDIA-MODULE')
 options=(!strip)
 install=nvidia.install
 _durl="https://us.download.nvidia.com/XFree86/Linux-x86"
-source=("${_durl}_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run"
-        'kernel-6.0.patch')
-sha256sums=('87056cfd6f9fb915946b01adbad01cdc6a13db2f1c00c21dce9367692b7ca42d'
-            'e323a4ddd8ce9e32060c63a9922a20a7b662b200d1ad4c0f08a79f7ad0b6051a')
+source=("${_durl}_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run")
+sha256sums=('b318c15d519898fd60c64ef73fdd331045884a1d97d811a25fbced544b5be6ad')
 
 _pkg="NVIDIA-Linux-x86_64-${pkgver}-no-compat32"
 
 prepare() {
     sh "${_pkg}.run" --extract-only
 
-    cd "${_pkg}/kernel"
-
-    # https://gist.github.com/joanbm/9f5e8150723912b3809f4de536974155
-    patch -Np1 -i "$srcdir/kernel-6.0.patch"
+    cd "${_pkg}"
+    # patches here
 }
 
 build() {
