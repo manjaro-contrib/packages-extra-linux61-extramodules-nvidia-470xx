@@ -8,8 +8,8 @@ _extramodules=extramodules-6.1-MANJARO
 
 pkgname=$_linuxprefix-nvidia-470xx
 pkgdesc="NVIDIA drivers for linux"
-pkgver=470.161.03
-pkgrel=26
+pkgver=470.182.03
+pkgrel=1
 arch=('x86_64')
 url="http://www.nvidia.com/"
 license=('custom')
@@ -21,7 +21,7 @@ options=(!strip)
 install=nvidia.install
 _durl="https://us.download.nvidia.com/XFree86/Linux-x86"
 source=("${_durl}_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run")
-sha256sums=('b318c15d519898fd60c64ef73fdd331045884a1d97d811a25fbced544b5be6ad')
+sha256sums=('0a02d9341b9b4206df1401a812e8dfed2406bc1f3d7a1055260149cde858aa8c')
 
 _pkg="NVIDIA-Linux-x86_64-${pkgver}-no-compat32"
 
