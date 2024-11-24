@@ -7,7 +7,7 @@ _linuxprefix=linux61
 pkgname=${_linuxprefix}-nvidia-470xx
 pkgdesc="NVIDIA drivers for linux"
 pkgver=470.256.02
-pkgrel=31
+pkgrel=32
 arch=('x86_64')
 url="http://www.nvidia.com/"
 license=('custom')
@@ -55,7 +55,7 @@ package() {
     install -Dm644 kernel/*.ko -t "${pkgdir}/usr/lib/modules/${_kernver}/extramodules/"
 
     # compress each module individually
-    find "${pkgdir}" -name '*.ko' -exec xz -T1 {} +
+    find "${pkgdir}" -name '*.ko' -exec zstd --rm -19 {} +
 
     install -Dm644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
